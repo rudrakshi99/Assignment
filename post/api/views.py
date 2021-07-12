@@ -34,7 +34,7 @@ class PostListView(ListAPIView):
    
     def get_queryset(self):
         """Returns only the object related to current user"""
-        user = self.request.user
+        user = self.request.user.userprofile
         return Post.objects.filter(user=user)
     
     
