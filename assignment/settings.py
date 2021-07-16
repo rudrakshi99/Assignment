@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+AUTH_PROFILE_MODULE = 'assignment.UserProfile'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'post',
     'product'
 ]
@@ -53,6 +55,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'assignment.urls'
+
+REST_FRAMEWORK = {
+        'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+
+}
 
 TEMPLATES = [
     {
@@ -88,7 +97,10 @@ DATABASES = {
         'NAME': 'product',
         'USER': 'postgres',
         'PASSWORD':'postgres',
-        'HOST':'localhost'
+        'HOST':'localhost',
+        'PORT':'5432'
+
+        
     }
 
 }

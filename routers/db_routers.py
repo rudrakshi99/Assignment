@@ -29,7 +29,7 @@ class AppRouter:
         elif 'product' not in [obj1._meta.app_label, obj2._meta.app_label]:
             return True
 
-        return False
+        return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """
